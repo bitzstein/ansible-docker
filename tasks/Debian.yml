@@ -12,12 +12,12 @@
     apt-transport-https
 
 - name: Add Docker repo
-  apt_repository: repo='deb {{docker_repo}} docker main' state=present
+  apt_repository: repo='deb {{docker_repo}} {{docker_dist}} main' state=present
 
-- name: Install lxc-docker package
+- name: Install docker-engine package
   apt: pkg={{item}} state=present update_cache=yes
   with_items:
-    - lxc-docker
+    - docker-engine
 
 # consider seperate role here
 - name: Change ufw forward policy to ACCEPT
@@ -28,6 +28,6 @@
   command: ufw reload
   when: docker_listen_tcp == True
 
-- name: Allow incomming tcp traffic on {{docker_listen_port}}
+- name: Allow incoming tcp traffic on {{docker_listen_port}}
   command: ufw allow {{docker_listen_port}}/tcp
   when: docker_listen_tcp == True

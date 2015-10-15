@@ -17,5 +17,6 @@ docker_create_group: true
 #
 docker_listen_tcp: False
 docker_listen_port: 4243
+docker_dist: ubuntu-trusty
 # docker_opts: '"-H tcp://{{ansible_eth1.ipv4.address}}:{{docker_listen_port}}"'
 ##### ---

@@ -9,12 +9,6 @@
   notify: 
     - Restart Docker
 
-- name: Docker init file
-  template: src=docker-init.j2 dest=/etc/init/docker.conf
-  when: etc_init.stat.exists == true
-  notify: 
-    - Restart Docker
-
 - name: Check if systemd exists
   stat: path=/usr/lib/systemd/system/
   register: systemd_check
