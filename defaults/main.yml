@@ -17,6 +17,11 @@ docker_create_group: true
 #
 docker_listen_tcp: False
 docker_listen_port: 4243
+
+# See https://docs.docker.com/installation/ubuntulinux for values of docker_dist
+# e.g. should be one of: ubuntu-precise, ubuntu-trusty, ubuntu-vivid, ubuntu-wily
 docker_dist: ubuntu-trusty
+
+# Modify daemon startup options
 # docker_opts: '"-H tcp://{{ansible_eth1.ipv4.address}}:{{docker_listen_port}}"'
 ##### ---
